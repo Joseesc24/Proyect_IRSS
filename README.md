@@ -1,4 +1,5 @@
 ## Proyect IRSS architecture and explanation
+The objective of the proyect IRSS (image resolution scaling service) is to develop an AWS-based service that using low-quality images can return the rescaled image as an output, improving its level of detail, for this the service will use implementations of AI-based super resolution technologies such as TecoGan or ESRGAN.
 #### Blocks diagram for this version of the system:
 ![Blocks diagram](resources/blocks_diagrams/IRSS_Sprint1.jpg)
 #### Flows that occur in this version of the system:
