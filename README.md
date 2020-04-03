@@ -26,6 +26,7 @@ The objective of the proyect IRSS (image resolution scaling service) is to devel
 
 The system is designed as a microservices architecture over AWS we select a micro services architecture over a monolithic one for taking advantage of all the different AWS services for example we take advantage of the capabilities of Sage Maker module when deplying the super resolution module.
 The main application modules are the super resolution module, the mail sending module and the web interface module, in the system are being used more services such as SQS,  RDS and S3 but for this services was needed just the connection, the main modules are the ones that manage the use of this services.
+
 Roughly the functions of the main modules are:
 
 -   Web interface module: Is the in charge of the interaction between the final user and the system, this module is deployed over EC2.
