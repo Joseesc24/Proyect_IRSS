@@ -1,6 +1,6 @@
 import cv2
 
-vidcap = cv2.VideoCapture('atlas.mp4')
+vidcap = cv2.VideoCapture('./short_videos/atlas.mp4')
 success, image = vidcap.read()
 count = 0
 while success:
