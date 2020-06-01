@@ -2,7 +2,7 @@ from os import walk
 from PIL import Image
 from resizeimage import resizeimage
 
-results_path = './image_bank_result'
+results_path = './image bank result'
 
 
 def images_degradation(path, files_list):
@@ -16,5 +16,5 @@ def images_degradation(path, files_list):
             new_image.save(path_output, image.format)
 
 
-path, subfolders, files_list = list(walk('./image_bank_origin'))[0]
+path, subfolders, files_list = list(walk('./image bank origin'))[0]
 images_degradation(path, files_list)
