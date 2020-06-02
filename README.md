@@ -1,6 +1,6 @@
 # Proyect IRSS architecture and explanation
 
-#### Install requirements with: ./install_requirements.sh
+#### Install requirements with: ./installation\ shells/install_requirements.sh
 
 The objective of the proyect IRSS (image resolution scaling service) is to develop an AWS-based service that using low-quality images can return the rescaled image as an output, improving its level of detail, for this the service will use implementations of AI-based super resolution technologies such as TecoGan or ESRGAN.
 

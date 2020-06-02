@@ -32,6 +32,3 @@ def Run():
         output = np.transpose(output[[2, 1, 0], :, :], (1, 2, 0))
         output = (output * 255.0).round()
         cv2.imwrite('HR/{:s}_rlt.png'.format(base), output)
-
-
-Run()

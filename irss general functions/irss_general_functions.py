@@ -73,6 +73,3 @@ def check_if_item_exist_dynamo(image_hash):
         return True
     else:
         return False
-
-
-print(get_item_dynamodb('ec9a0bc37e726c8615c034a75f422d7a'))
