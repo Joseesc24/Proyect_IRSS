@@ -63,10 +63,10 @@ while True:
             os.remove('./LR/' + nombre_imagen)
             print("Imagen original borrada del almacenamiento local")
         nombre_imagen, extension = nombre_imagen.split(".")
-        nombre_imagen = nombre_imagen + "_rlt." + extension
+        nombre_imagen = nombre_imagen + "_rlt.png"
         print("Nombre de la imagen reescalada: " + nombre_imagen)
-        time.sleep(4)
-        new_image_name = hash_imagen + extension
+        time.sleep(20)
+        new_image_name = hash_imagen + ".png"
         lambda_upload_file_to_s3(nombre_imagen, upload_bucket, new_image_name)
         print("Imagen reescalda subida a s3")
         if os.path.exists('./HR/' + nombre_imagen):
