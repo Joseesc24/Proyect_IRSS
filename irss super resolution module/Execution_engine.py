@@ -49,8 +49,11 @@ def delete_file_from_s3(filename, bucket_name):
 
 while True:
 
-    for message in queue.receive_messages(MessageAttributeNames=['All']):
+    try:
+
+        message = queue.receive_messages(MessageAttributeNames=['All'])[0]
         print("")
+
         nombre_imagen = str(message.message_attributes['image_name']['StringValue'])
         hash_imagen = str(message.message_attributes['image_hash']['StringValue'])
         print("Nombre de la siguiente imagen: " + str(nombre_imagen))
@@ -76,5 +79,16 @@ while True:
         print("Imagen original borrada de s3")
         print("Imagen " + nombre_imagen + " escalada y entrgada en " + upload_bucket)
 
-        message.delete()
+        queue.delete_messages(
+            Entries=[
+                {
+                    'Id': str(message.message_id),
+                    'ReceiptHandle': str(message.receipt_handle)
+                },
+            ]
+        )
+
+        time.sleep(60)
+
+    except:
         time.sleep(60)
