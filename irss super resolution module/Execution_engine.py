@@ -47,12 +47,17 @@ def delete_file_from_s3(filename, bucket_name):
     boto3.client('s3').delete_object(Bucket=bucket_name, Key=filename)
 
 
+print("")
 while True:
 
     try:
-
         message = queue.receive_messages(MessageAttributeNames=['All'])[0]
-        print("")
+        print("\nMensaje nuevo recivido")
+    except:
+        message = "null"
+        print("Sin mensajes nuevos")
+
+    if str(message) != "null":
 
         queue.delete_messages(
             Entries=[
@@ -88,7 +93,4 @@ while True:
         print("Imagen original borrada de s3")
         print("Imagen " + nombre_imagen + " escalada y entrgada en " + upload_bucket)
 
-        time.sleep(60)
-
-    except:
         time.sleep(60)
