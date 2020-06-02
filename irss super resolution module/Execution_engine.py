@@ -48,13 +48,16 @@ def delete_file_from_s3(filename, bucket_name):
 
 
 while True:
-
+    print(queue.receive_messages())
     for message in queue.receive_messages():
         codigo_imagen = message.body
+        print("Codigo de la siguiente imagen:" + str(codigo_imagen))
         if check_if_item_exist_dynamo(codigo_imagen) == True:
             estado = get_item_dynamodb(codigo_imagen)
             nombre_imagen = str(estado['image_original_name'])
             paso_imagen = int(estado['image_estate'])
+            print("Estado de la imagen: " + str(paso_imagen))
+            print("Nombre de la imagen: " + str(nombre_imagen))
             if paso_imagen == 1:
                 download_image_from_s3(nombre_imagen, download_bucket)
                 run_esrgan()
